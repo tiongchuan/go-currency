@@ -1,38 +1,77 @@
-.App {
-  text-align: center;
+body {
+    background-image: url(./component/img/sgd.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    color: rgb(233, 231, 237);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.background {
+    position: absolute;
+    background-color: rgb(8 8 31 / 80%);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+    position: relative;
+    background-color: rgb(80 80 112 / 90%);
+    height: 450px;
+    width: 400px;
+    padding: 30px 15px;
+    margin-top: 35px;
+    border-radius: 10px;
+    box-shadow: inset rgb(23 23 33) 0px 0px 5px 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h1 {
+    text-align: center;
+    border-radius: 10px;
+    margin: 30px 20px 15px 20px;
+    padding: 14px;
+    width: 290px;
+    background-color: rgb(52 52 131 / 90%);
+    box-shadow: rgb(50 48 64) 0px 0px 1px 1px;
 }
 
-.App-link {
-  color: #61dafb;
+.rates {
+    margin-top: 30px;
+    font-size: 11px;
+    height: 150px;
+    width: 325px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(52 52 131 / 90%);
+    box-shadow: rgb(50 48 64) 0px 0px 1px 1px;
+    border-radius: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn_form {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 345px;
+}
+
+button {
+    background-color: rgb(52 52 131 / 90%);
+    box-shadow: rgb(50 48 64) 0px 0px 1px 1px;
+    border-radius: 10px;
+    border: 0;
+    color: white;
+    font-size: 11px;
+    margin: 10px 10px 10px 1px;;
+    align-items: stretch;
+    width: 40px;
 }
