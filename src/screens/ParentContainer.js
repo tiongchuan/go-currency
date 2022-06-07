@@ -1,12 +1,22 @@
 import React from "react";
-import {useState, useEffect} from "react";
-import APT from "../API";
+import { useState } from "react";
+import Get from "../components/Get";
+import Post from "../components/Post";
 
 const ParentContainer = () => {
 
+    const [result, setResult] = useState("");
+
+    const handleResult = (conversion) => {
+        const newState = conversion;
+        setResult(newState);
+    }
+
     return (
         <>
-        Parent Container
+            <h1>goCurrency</h1>
+            <Get handleResult={handleResult}/>
+            <Post result={result}/>
         </>
     );
 }
