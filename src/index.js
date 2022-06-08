@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-import GoCurrency from './components/Main';
 import CurrencyConverter from './components/CurrencyConverter';
 import CurrencyData from './components/CurrencyData';
-import CurrencyChart from './components/CurrencyChart';
+
 
 
 
