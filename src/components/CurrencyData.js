@@ -5,12 +5,12 @@ import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 import {
     Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend,
+    // CategoryScale,
+    // LinearScale,
+    // BarElement,
+    // Title,
+    // Tooltip,
+    // Legend,
 } from 'chart.js';
 
 const axios = require("axios");

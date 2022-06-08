@@ -42,16 +42,13 @@ const CurrencyConverter = () => {
     }, [])
 
 
-    const ConvertCurrency = async () => {
-        await axios.get(`https://api.exchangerate.host/convert?from=${input}&to=${output}&amount=${amount}`)
-            .then(res => {
-                // console.log(res);
-                setAmountConverted(res.data.result);
-                setConversionRate(res.data.info.rate);
-                setDate1(res.data.date);
-            }).catch(err => {
-                console.log(err);
-            })
+    const ConvertCurrency =  async() => {
+        const {request,data} = await axios.get(`https://api.exchangerate.host/convert?from=${input}&to=${output}&amount=${amount}`)
+            if (request.status === 200) { 
+                setAmountConverted(data.result);
+                setConversionRate(data.info.rate);
+                setDate1(data.date);
+            }
     }
     useEffect(()=>{
         ConvertCurrency()
