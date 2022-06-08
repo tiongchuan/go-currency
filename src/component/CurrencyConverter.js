@@ -39,15 +39,13 @@ const CurrencyConverter = () => {
     }, [])
 
     const ConvertCurrency = async () => {
-        await API.get(`/convert?from=${input}&to=${output}&amount=${amount}`)
-            .then(res => {
+        const {request, data} = await API.get(`/convert?from=${input}&to=${output}&amount=${amount}`)
+            if (request.status === 200) {
                 // console.log(res);
-                setAmountConverted((res.data.result).toFixed(2));
-                setConversionRate((res.data.info.rate).toFixed(2));
-                setDate1(res.data.date);
-            }).catch(err => {
-                console.log(err);
-            })
+                setAmountConverted((data.result).toFixed(2));
+                setConversionRate((data.info.rate).toFixed(2));
+                setDate1(data.date);
+            }
     }
 
     useEffect(()=>{
@@ -58,37 +56,34 @@ const CurrencyConverter = () => {
         <>
             <div className="background"></div>
             <div className="container">
-            <h2>Currency Converter</h2>
-            <div className="form">
-            <input 
-                value={amount} onChange={handleAmount}>
-            </input>
-            
-            <select 
-                type = 'text' 
-                value={input} onChange={handleInput}>
-                {latestRate.map((o) => 
-                    <option key={o}>{o}</option>
-                )}
-            </select>
-
-            <select 
-                type = 'text'
-                value={output} 
-                onChange={handleOutput}>
-                {latestRate.map((o) =>
-                    <option key={o}>{o}</option>
-                )}
-            </select>
-            </div>
-            <div className="output">
-                <p>Amount Converted: {amountConverted}</p>
-                <p>Conversion Rate: {conversionRate}</p>
-                <p> Conversion Date: {date1}</p>
-            </div>
-            
+                <h2>Currency Converter</h2>
+                <div className="form">
+                    <input 
+                        type='number'
+                        value={amount} onChange={handleAmount}>
+                    </input>
+                    <select 
+                        type = 'text' 
+                        value={input} onChange={handleInput}>
+                        {latestRate.map((o) => 
+                            <option key={o}>{o}</option>
+                        )}
+                     </select>
+                    <select 
+                        type = 'text'
+                        value={output} 
+                        onChange={handleOutput}>
+                        {latestRate.map((o) =>
+                            <option key={o}>{o}</option>
+                        )}
+                    </select>
+                </div>
+                <div className="output">
+                    <p>Amount Converted: {amountConverted}</p>
+                    <p>Conversion Rate: {conversionRate}</p>
+                    <p> Conversion Date: {date1}</p>
+                </div>
             <CurrencyData input={input} output={output}/>
-            
             </div>
         </>
     )

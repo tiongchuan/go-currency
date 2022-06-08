@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 import API from "../API";
@@ -40,11 +40,11 @@ const CurrencyData = (props) => {
         console.log(data);
     }
 
-    console.log(data1);
+    // console.log(data1);
 
-    // useEffect(() => {
-    //     getCurencyData()
-    // }, [])
+    useEffect(() => {
+        getCurrencyData()
+    }, [output])
 
     const function1 = () => {
         const label5Days = (Object.keys(data1));
@@ -69,6 +69,12 @@ const CurrencyData = (props) => {
             datasets: [{
                 label: 'currency rates',
                 data: array5Days,
+                tension:0.4,
+                fill: true,
+                backgroundColor:'#ffffff29',
+                segment: {
+                    borderColor: '#ffffffb3'
+                },
             }]
         })
         console.log(chartData);
@@ -83,23 +89,23 @@ const CurrencyData = (props) => {
                 onClick={()=>{getCurrencyData();function1()}}>
                 5 days History
             </button>
+
             <div className="chart">
                 <p>{input} vs {output}</p>
-            
-            <Line className="line"
-                data={chartData}
-                // options={{
-                //     title: {
-                //         display: true,
-                //         text: 'Currency rate for past 5 days',
-                //         fontSize: 20
-                //     },
-                //     legend: {
-                //         display: true,
-                //         position: 'right',
-                //     }
-                // }}
-            />
+                <Line className="line"
+                    data={chartData}
+                    // options={{
+                    //     title: {
+                    //         display: true,
+                    //         text: 'Currency rate for past 5 days',
+                    //         fontSize: 20
+                    //     },
+                    //     legend: {
+                    //         display: true,
+                    //         position: 'right',
+                    //     }
+                    // }}
+                />
             </div>
         </>
     )

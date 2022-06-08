@@ -9,11 +9,11 @@ import CurrencyConverter from './component/CurrencyConverter';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <>
     <CurrencyConverter />
     {/* <CurrencyData/> */}
     {/* <GoCurrency/> */}
     {/* <CurrencyChart/> */}
  
-  </React.StrictMode>
+  </>
 );
