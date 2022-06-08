@@ -43,11 +43,11 @@ const CurrencyData = (props) => {
         console.log(data);
     }
 
-    console.log(data1);
+    // console.log(data1);
 
-    // useEffect(() => {
-    //     getCurencyData()
-    // }, [])
+    useEffect(() => {
+        getCurencyData()
+    }, [output])
 
     const function1 = () => {
         const label5Days = (Object.keys(data1));
@@ -80,29 +80,27 @@ const CurrencyData = (props) => {
     //     function1()
     // }, [])
 
-
-
     return (
         <>
             <div>
                 <p>{input}{output}</p>
             </div>
 
-            <button onClick={()=>{getCurencyData();function1()}}>5 days History</button>
+            <button onClick={() => { getCurencyData(); function1() }}>5 days History</button>
 
             <Line
                 data={chartData}
-                // options={{
-                //     title: {
-                //         display: true,
-                //         text: 'Currency rate for past 5 days',
-                //         fontSize: 20
-                //     },
-                //     legend: {
-                //         display: true,
-                //         position: 'right',
-                //     }
-                // }}
+            // options={{
+            //     title: {
+            //         display: true,
+            //         text: 'Currency rate for past 5 days',
+            //         fontSize: 20
+            //     },
+            //     legend: {
+            //         display: true,
+            //         position: 'right',
+            //     }
+            // }}
             />
         </>
     )
