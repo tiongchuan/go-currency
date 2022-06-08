@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL : 'https://openexchangerates.org/api'
+    baseURL : 'https://api.exchangerate.host'
   })
 
 export default API

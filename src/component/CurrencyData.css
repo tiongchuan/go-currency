@@ -1,0 +1,25 @@
+button {
+    background: none;
+    background-color:rgb(52 52 131 / 90%);
+    box-shadow:rgb(50 48 64) 0px 0px 1px 1px;
+    padding: 10px;
+    border: 0;
+    border-radius: 10px;
+    font-size: 8px;
+    width: 94px;
+    color: white;
+    margin: 10px;
+}
+
+.chart {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0px 20px 15px 20px;
+    padding: 5px;
+    width: 300px;
+    background-color: rgb(52 52 131 / 90%);
+    box-shadow: rgb(50 48 64) 0px 0px 1px 1px;
+    color: white;
+}
