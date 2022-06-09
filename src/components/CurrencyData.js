@@ -22,8 +22,7 @@ const CurrencyData = (props) => {
         useState({
             labels: '',
             datasets: [{
-                label: 'currency rates',
-                data: ''
+                data: '',
             }]
         })
 
@@ -37,23 +36,23 @@ const CurrencyData = (props) => {
     const d5 = new Date(d5Number)
     const startDate = d5.toISOString().slice(0, 10);
 
-    const getCurencyData = async () => {
+    const getCurrencyData = async () => {
         const { data } = await axios.get(`https://api.exchangerate.host/timeseries?start_date=${startDate}&end_date=${todayDate}&base=${input}`)
         setData1(data.rates)
         console.log(data);
     }
-
     // console.log(data1);
 
     useEffect(() => {
-        getCurencyData()
-    }, [output])
+        getCurrencyData()
+    }, [input, output])
 
     const function1 = () => {
         const label5Days = (Object.keys(data1));
         // console.log(label5Days);
         let array5Days = []
         const array = [data1]
+        console.log(array);
         const result = array.flatMap(Object.values);
         console.log(result);
         for (let i = 0; i < result.length; i++) {
@@ -70,38 +69,49 @@ const CurrencyData = (props) => {
         setChartData({
             labels: label5Days,
             datasets: [{
-                label: 'currency rates',
+                label: 'Conversion Rate',
                 data: array5Days,
+                fill: true,
+                borderColor: 'rgb(192, 100, 192)',
+                backgroundColor: 'rgb(100, 192, 192)',
+                tension: 0.5,
+                // stepped:'true',
+                // pointBackgroundColor:'rgb(0,0,0)',
             }]
         })
         console.log(chartData);
     }
-    // useEffect(() => {
-    //     function1()
-    // }, [])
+    useEffect(() => {
+        function1()
+    }, [data1])
 
     return (
         <>
-            <div>
+            {/* <div>
                 <p>{input}{output}</p>
-            </div>
+            </div> */}
 
-            <button onClick={() => { getCurencyData(); function1() }}>5 days History</button>
-
-            <Line
+            <Line 
+            style={{display: output? true:'none'}}
                 data={chartData}
-            // options={{
-            //     title: {
-            //         display: true,
-            //         text: 'Currency rate for past 5 days',
-            //         fontSize: 20
-            //     },
-            //     legend: {
-            //         display: true,
-            //         position: 'right',
-            //     }
-            // }}
-            />
+                options={{
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Currency rate for past 5 days',
+                            fontSize: 20
+                        },
+                        legend: {
+                            display: true,
+                            position: 'top',
+                        }
+                    }
+                }}
+                height="200px"
+                width="200px"
+                // options={{ maintainAspectRatio: false }}
+
+            />       
         </>
     )
 }

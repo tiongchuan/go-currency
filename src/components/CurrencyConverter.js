@@ -79,9 +79,9 @@ const CurrencyConverter = () => {
             </select>
 
             <div>
-                <p>Amount Converted: {amountConverted}</p>
+                <p>Amount Converted: {amount?amountConverted:null}</p>
                 <p>Conversion Rate: {conversionRate}</p>
-                <p> Conversion Date: {date1}</p>
+                {/* <p> Conversion Date: {date1}</p> */}
             </div>
 
             <CurrencyData input={input} output={output}/>
