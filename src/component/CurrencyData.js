@@ -17,7 +17,7 @@ const CurrencyData = (props) => {
 
     const {input, output} = props
 
-    const [data1, setData1] = useState()
+    const [data1, setData1] = useState([])
     const [chartData, setChartData] =
         useState({
             labels: '',
@@ -44,7 +44,7 @@ const CurrencyData = (props) => {
 
     useEffect(() => {
         getCurrencyData()
-    }, [output])
+    }, [input, output])
 
     const function1 = () => {
         const label5Days = (Object.keys(data1));
@@ -73,38 +73,39 @@ const CurrencyData = (props) => {
                 fill: true,
                 backgroundColor:'#ffffff29',
                 segment: {
-                    borderColor: '#ffffffb3'
+                    borderColor: '#ffffffb3',
+                    borderWidth: '2px'
                 },
             }]
         })
         console.log(chartData);
     }
-    // useEffect(() => {
-    //     function1()
-    // }, [])
+
+    useEffect(() => {
+        function1()
+    }, [data1])
 
     return (
         <>
-            <button 
-                onClick={()=>{getCurrencyData();function1()}}>
-                5 days History
-            </button>
-
             <div className="chart">
                 <p>{input} vs {output}</p>
-                <Line className="line"
+                <Line  
+                    style={{display: output? true:'none'}}
                     data={chartData}
-                    // options={{
-                    //     title: {
-                    //         display: true,
-                    //         text: 'Currency rate for past 5 days',
-                    //         fontSize: 20
-                    //     },
-                    //     legend: {
-                    //         display: true,
-                    //         position: 'right',
-                    //     }
-                    // }}
+                    options={{
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Currency rate for past 5 days'
+                            },
+                            legend: {
+                                display: true,
+                                position: 'top',
+                            }
+                        }
+                    }} 
+                    height = '200px'
+                    width= '300px'
                 />
             </div>
         </>

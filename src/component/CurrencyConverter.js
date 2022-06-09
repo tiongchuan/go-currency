@@ -11,14 +11,16 @@ const CurrencyConverter = () => {
     const [latestRate, setLatestRate] = useState([])
     const [amountConverted, setAmountConverted] = useState('');
     const [conversionRate, setConversionRate] = useState('');
-    const [date1, setDate1] = useState('')
+
+    let date = new Date()
+    let showDate = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`
 
     const handleInput = (e) => {
         setInput(e.target.value)
     }
     const handleOutput = (e) => {
         setOutput(e.target.value)
-    }
+    }                    
     const handleAmount = (e) => {
         setAmount(e.target.value)
     }
@@ -40,12 +42,11 @@ const CurrencyConverter = () => {
 
     const ConvertCurrency = async () => {
         const {request, data} = await API.get(`/convert?from=${input}&to=${output}&amount=${amount}`)
-            if (request.status === 200) {
-                // console.log(res);
-                setAmountConverted((data.result).toFixed(2));
-                setConversionRate((data.info.rate).toFixed(2));
-                setDate1(data.date);
-            }
+        if (request.status === 200) {
+            // console.log(res);
+            setAmountConverted((data.result).toFixed(2));
+            setConversionRate((data.info.rate).toFixed(2));
+        }
     }
 
     useEffect(()=>{
@@ -78,10 +79,11 @@ const CurrencyConverter = () => {
                         )}
                     </select>
                 </div>
-                <div className="output">
-                    <p>Amount Converted: {amountConverted}</p>
-                    <p>Conversion Rate: {conversionRate}</p>
-                    <p> Conversion Date: {date1}</p>
+                <div className="output_field">
+                    <h5>{amount} {input} = {amountConverted} {output}</h5>
+                    <p>1 {input} = {conversionRate} {output}</p>
+                    <p>{showDate}</p>
+                    {/* <p>{date1}</p> */}
                 </div>
             <CurrencyData input={input} output={output}/>
             </div>
