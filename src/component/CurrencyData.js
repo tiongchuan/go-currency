@@ -73,7 +73,7 @@ const CurrencyData = (props) => {
                 fill: true,
                 backgroundColor:'#ffffff29',
                 segment: {
-                    borderColor: '#ffffffb3',
+                    borderColor: '#ffffff',
                     borderWidth: '2px'
                 },
             }]
@@ -96,11 +96,16 @@ const CurrencyData = (props) => {
                         plugins: {
                             title: {
                                 display: true,
-                                text: 'Currency rate for past 5 days'
+                                text: 'Currency rate for past 5 days',
+                                textSize:5
                             },
                             legend: {
-                                display: true,
-                                position: 'top',
+                                labels: {
+                                    font: {
+                                        size:10
+                                    }
+                                }
+                                
                             }
                         }
                     }} 
