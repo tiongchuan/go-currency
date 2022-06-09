@@ -1,25 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-
-import CurrencyConverter from './components/CurrencyConverter';
-import CurrencyData from './components/CurrencyData';
-
-
-
-
+import CurrencyConverter from './component/CurrencyConverter';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-
     <CurrencyConverter />
-    {/* <CurrencyData/> */}
-    {/* <GoCurrency/> */}
-    {/* <CurrencyChart/> */}
- 
-
   </>
 );
-
-
