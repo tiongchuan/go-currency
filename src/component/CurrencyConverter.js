@@ -57,7 +57,11 @@ const CurrencyConverter = () => {
         <>
             <div className="background"></div>
             <div className="container">
-                <h2>Currency Converter</h2>
+                <div className="header">
+                    <h2>Go Currency</h2>
+                    <p>{showDate}</p>
+                </div>
+              
                 <div className="form">
                     <input 
                         type='number'
@@ -82,8 +86,6 @@ const CurrencyConverter = () => {
                 <div className="output_field">
                     <h5>{amount} {input} = {amountConverted} {output}</h5>
                     <p>1 {input} = {conversionRate} {output}</p>
-                    <p>{showDate}</p>
-                    {/* <p>{date1}</p> */}
                 </div>
             <CurrencyData input={input} output={output}/>
             </div>
