@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/go-currency/static/css/main.a57ca1c9.css",
-    "main.js": "/go-currency/static/js/main.1dfa9581.js",
+    "main.css": "/go-currency/static/css/main.0952b33d.css",
+    "main.js": "/go-currency/static/js/main.1600d821.js",
     "static/media/sgd.jpg": "/go-currency/static/media/sgd.e5855b8ff2ef8ede7cb1.jpg",
     "index.html": "/go-currency/index.html",
-    "main.a57ca1c9.css.map": "/go-currency/static/css/main.a57ca1c9.css.map",
-    "main.1dfa9581.js.map": "/go-currency/static/js/main.1dfa9581.js.map"
+    "main.0952b33d.css.map": "/go-currency/static/css/main.0952b33d.css.map",
+    "main.1600d821.js.map": "/go-currency/static/js/main.1600d821.js.map"
   },
   "entrypoints": [
-    "static/css/main.a57ca1c9.css",
-    "static/js/main.1dfa9581.js"
+    "static/css/main.0952b33d.css",
+    "static/js/main.1600d821.js"
   ]
 }
