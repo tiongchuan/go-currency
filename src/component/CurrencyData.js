@@ -3,15 +3,6 @@ import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 import API from "../API";
 import './CurrencyData.css'
-// import {
-//     Chart as ChartJS,
-//     CategoryScale,
-//     LinearScale,
-//     BarElement,
-//     Title,
-//     Tooltip,
-//     Legend,
-// } from 'chart.js';
 
 const CurrencyData = (props) => {
 
@@ -37,10 +28,8 @@ const CurrencyData = (props) => {
     const getCurrencyData = async () => {
         const { data } = await API.get(`/timeseries?start_date=${startDate}&end_date=${todayDate}&base=${input}`)
         setData1(data.rates)
-        console.log(data);
+        // console.log(data);
     }
-
-    // console.log(data1);
 
     useEffect(() => {
         getCurrencyData()
@@ -52,36 +41,17 @@ const CurrencyData = (props) => {
         let array5Days = []
         const array = [data1]
         const result = array.flatMap(Object.values);
-        console.log(result);
+        // console.log(result);
         for (let i = 0; i < result.length; i++) {
             const result1 = Object.entries(result[i])
-            console.log(result1);
+            // console.log(result1);
             for (let k = 0; k < result1.length; k++) {
                 if (result1[k][0] === output) {
                     array5Days.push(result1[k][1]);
                 }
             }
         }
-        console.log(array5Days);
-
-        // setChartData({
-        //     labels: label5Days,
-        //     datasets: [{
-        //         label: 'Conversion Rate',
-        //         data: array5Days,
-        //         fill: true,
-        //         borderColor: '#ffffff',
-        //         borderWidth: '2px',
-        //         segment: {
-        //             borderWidth: '2px'
-        //         },
-        //         backgroundColor:'#ffffff29',
-        //         pointBackgroundColor:'white',
-        //         tension: 0.4,
-        //         stepped:'true',
-        //         pointBackgroundColor:'rgb(0,0,0)',
-        //     }]
-        // })
+        // console.log(array5Days);
 
         setChartData({
             labels: label5Days,
@@ -92,11 +62,12 @@ const CurrencyData = (props) => {
                 fill: true,
                 backgroundColor:'#ffffff29',
                 pointBackgroundColor:'#ffffffdb',
+                borderColor: '#ffffff45',
                 segment: {
+                    borderWidth: '2px',
                     borderColor: '#ffffff',
-                    borderWidth: '2px'
                 }
-            }]
+            }]  
         })
         console.log(chartData);
     }
@@ -126,8 +97,7 @@ const CurrencyData = (props) => {
                                         font: {
                                         size:10,
                                         color:'white' 
-                                    }
-                                    
+                                        }
                                     }
                                 }
                             }
