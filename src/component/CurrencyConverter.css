@@ -1,23 +1,29 @@
+root {
+    height: 100vh;
+}
+
 body {
     background-image: url(../component/img/sgd.jpg);
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     margin: 0;
     padding: 0;
     position: relative;
     display: flex;
     justify-content: center;
-    height: 100vh;
-    color: rgb(233, 231, 237);
+    height: 100%;
+    color: white;
 }
 
 .background {
+    box-sizing: border-box;
     position: absolute;
-    background-color: rgb(8 8 31 / 80%);
+    background-color: rgb(8 8 31 / 75%);
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    height: 100vh;
 }
 
 .container {
@@ -26,7 +32,8 @@ body {
     height: auto;
     width: 500px;
     padding: 20px 15px;
-    margin-top: 20px;
+    margin-top: 15px;
+    margin-bottom: 50px;
     border-radius: 10px;
     box-shadow: inset rgb(23 23 33) 0px 0px 5px 2px;
     display: flex;

@@ -3,15 +3,15 @@ import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 import API from "../API";
 import './CurrencyData.css'
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend,
-} from 'chart.js';
+// import {
+//     Chart as ChartJS,
+//     CategoryScale,
+//     LinearScale,
+//     BarElement,
+//     Title,
+//     Tooltip,
+//     Legend,
+// } from 'chart.js';
 
 const CurrencyData = (props) => {
 
@@ -64,6 +64,25 @@ const CurrencyData = (props) => {
         }
         console.log(array5Days);
 
+        // setChartData({
+        //     labels: label5Days,
+        //     datasets: [{
+        //         label: 'Conversion Rate',
+        //         data: array5Days,
+        //         fill: true,
+        //         borderColor: '#ffffff',
+        //         borderWidth: '2px',
+        //         segment: {
+        //             borderWidth: '2px'
+        //         },
+        //         backgroundColor:'#ffffff29',
+        //         pointBackgroundColor:'white',
+        //         tension: 0.4,
+        //         stepped:'true',
+        //         pointBackgroundColor:'rgb(0,0,0)',
+        //     }]
+        // })
+
         setChartData({
             labels: label5Days,
             datasets: [{
@@ -72,15 +91,16 @@ const CurrencyData = (props) => {
                 tension:0.4,
                 fill: true,
                 backgroundColor:'#ffffff29',
+                pointBackgroundColor:'#ffffffdb',
                 segment: {
                     borderColor: '#ffffff',
                     borderWidth: '2px'
-                },
+                }
             }]
         })
         console.log(chartData);
     }
-
+    
     useEffect(() => {
         function1()
     }, [data1])
@@ -88,7 +108,7 @@ const CurrencyData = (props) => {
     return (
         <>
             <div className="chart">
-                <p>{input} vs {output}</p>
+                <p2>{input} vs {output}</p2>
                 <Line  
                     style={{display: output? true:'none'}}
                     data={chartData}
@@ -97,15 +117,19 @@ const CurrencyData = (props) => {
                             title: {
                                 display: true,
                                 text: 'Currency rate for past 5 days',
-                                textSize:5
+                                fontSize:2,
+                                color: '#ffffff99'
                             },
                             legend: {
                                 labels: {
-                                    font: {
-                                        size:10
+                                    label: {
+                                        font: {
+                                        size:10,
+                                        color:'white' 
+                                    }
+                                    
                                     }
                                 }
-                                
                             }
                         }
                     }} 
