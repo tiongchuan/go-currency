@@ -79,7 +79,7 @@ const CurrencyData = (props) => {
     return (
         <>
             <div className="chart">
-                <p2>{input} vs {output}</p2>
+                <p className="p">{input} vs {output}</p>
                 <Line  
                     style={{display: output? true:'none'}}
                     data={chartData}

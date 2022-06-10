@@ -44,8 +44,8 @@ const CurrencyConverter = () => {
         const {request, data} = await API.get(`/convert?from=${input}&to=${output}&amount=${amount}`)
         if (request.status === 200) {
             // console.log(res);
-            setAmountConverted((data.result).toFixed(2));
-            setConversionRate((data.info.rate).toFixed(2));
+            setAmountConverted((data.result).toFixed(3));
+            setConversionRate((data.info.rate).toFixed(3));
         }
     }
 
